@@ -1,0 +1,19 @@
+---
+
+require:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rake
+
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: error
