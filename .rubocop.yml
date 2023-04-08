@@ -17,3 +17,8 @@ Gemspec/DevelopmentDependencies:
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: error
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - test/**/*
