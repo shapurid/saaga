@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module Saaga
-  # Temp doc
   module Errors
-    # Temp doc
+    # Raises when stage registration fails.
     class StageRegistrationError < StandardError; end
   end
 end
