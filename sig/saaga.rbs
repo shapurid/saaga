@@ -1,0 +1,52 @@
+interface _Callable
+  def call: (untyped) -> untyped
+end
+
+module Saaga
+  VERSION: String
+
+  class Stage
+    INVALID_NAME_ERROR_MESSAGE: String
+    INVALID_ACTION_ERROR_MESSAGE: String
+    INVALID_COMPENSATION_ERROR_MESSAGE: String
+
+    attr_reader name: Symbol
+
+    attr_reader action: _Callable
+
+    attr_reader compensation: _Callable?
+
+    def initialize: (Symbol name, _Callable action, _Callable? compensation) -> self
+
+    def validate: () -> void
+
+    def execute_action: (Hash[Symbol, untyped] actions_results) -> untyped
+
+    def execute_compensation: (Hash[Symbol, untyped] actions_results) -> untyped
+
+    def valid_name?: () -> bool
+
+    def valid_action?: () -> bool
+
+    def valid_compensation?: () -> bool
+
+    def valid_arity?: (untyped object) -> bool
+  end
+
+  class Transaction
+
+    attr_reader registered_stages: Array[Saaga::Stage]
+
+    attr_reader executed_stages_results: Hash[Symbol, Object]
+
+    def initialize: () -> self
+
+    def register: (Symbol stage_name, _Callable action, _Callable? compensation) -> self
+
+    def execute: () -> Hash[Symbol, untyped]
+
+    def validate_stage_uniqueness: (Saaga::Stage stage) -> untyped
+
+    def execute_stages: () -> void
+  end
+end

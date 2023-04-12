@@ -5,7 +5,7 @@ console:
 	bin/console
 
 tests:
-	bundle exec rake test
+	bundle exec rake spec
 
 lint:
 	bundle exec rubocop .
@@ -16,5 +16,10 @@ fix:
 fix!:
 	bundle exec rubocop -A .
 
-smells-check:
+reek:
 	bundle exec reek .
+
+full-check:
+	@make lint
+	@make reek
+	@make tests

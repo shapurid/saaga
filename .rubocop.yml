@@ -1,7 +1,7 @@
 ---
 
 require:
-  - rubocop-minitest
+  - rubocop-rspec
   - rubocop-performance
   - rubocop-rake
 
@@ -17,3 +17,10 @@ Gemspec/DevelopmentDependencies:
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: error
+
+RSpec/MultipleExpectations:
+  Enabled: true
+  Max: 4
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
